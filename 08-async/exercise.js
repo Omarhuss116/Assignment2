@@ -22,9 +22,6 @@ export async function productName(id) {
   const product = await findProduct(id);
   return product.name;
 }
-  // TODO: await findProduct(id), then return the name off what comes back.
-
-
 
 /**
  * A price label for one product, looked up by id.
@@ -33,8 +30,6 @@ export async function productName(id) {
  * @param {number} id
  * @returns {Promise<string>}
  */
-  // TODO: await the product, then build the string. Module 01's label, with
-  // the data arriving late.
 export async function priceLabel(id) {
   const product = await findProduct(id);
   return `${product.name} costs ${product.price} EGP`;
@@ -53,12 +48,11 @@ export async function priceLabel(id) {
  * @returns {Promise<string>}
  */
 
-  // TODO: wrap the await in try/catch, and return "Not found" from the catch.
- export async function safeProductName(id) {
+export async function safeProductName(id) {
   try {
     const product = await findProduct(id);
     return product.name;
-  } catch (error) {
+  } catch {
     return "Not found";
   }
 }
