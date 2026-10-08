@@ -1,0 +1,9 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f3f6f8;
+}
+
+.listing {
+	padding: 0.5rem 0.75rem;
+	color: #183153;
+}
