@@ -54,7 +54,8 @@ export function isExpensive(amount) {
  * @param {number} orderTotal in EGP
  * @returns {number} the shipping cost in EGP
  */
-export function shippingCost(orderTotal) {
+export function shippingCost(orderTotal) {  
+  
   if (orderTotal > 500) {
     return 0;
   }
