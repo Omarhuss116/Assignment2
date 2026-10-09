@@ -13,6 +13,8 @@
 // The first three are started for you. The LAST one has no code — you write
 // it, and it is the one that ties the whole of Part 2 together.
 
+const wiredForms = new WeakSet();
+
 /**
  * Reads what is currently typed into the two boxes.
  *
@@ -109,6 +111,12 @@ export function renderList(items) {
 export function wireForm() {
   const form = document.querySelector("#product-form");
   const errorBox = document.querySelector("#error");
+
+  if (wiredForms.has(form)) {
+    return;
+  }
+  wiredForms.add(form);
+
   const items = [];
 
   form.addEventListener("submit", (event) => {
@@ -132,3 +140,5 @@ export function wireForm() {
     clearForm();
   });
 }
+
+wireForm();

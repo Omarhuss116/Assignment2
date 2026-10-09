@@ -15,6 +15,8 @@
 // Writing it twice is fine; pulling it out into a small function of its own is
 // also fine. Either way, remember it can come back undefined.
 
+const wiredAddButtons = new WeakSet();
+
 /**
  * Adds one product card to the end of the list.
  *
@@ -113,6 +115,11 @@ export function wireButtons() {
   const addButton = document.querySelector("#add");
   const resetButton = document.querySelector("#reset");
 
+  if (wiredAddButtons.has(addButton)) {
+    return;
+  }
+  wiredAddButtons.add(addButton);
+
   addButton.addEventListener("click", () => {
     addProduct("Notebook", 45);
   });
@@ -121,3 +128,5 @@ export function wireButtons() {
     clearProducts();
   });
 }
+
+wireButtons();

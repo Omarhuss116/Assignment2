@@ -89,3 +89,14 @@ export function soldOutNames() {
     (heading) => heading.textContent
   );
 }
+
+const output = document.querySelector("#output");
+if (output) {
+  output.textContent = [
+    `Heading: ${pageHeading()}`,
+    `Product count: ${productCount()}`,
+    `Product names: ${productNames().join(", ")}`,
+    `Pen price: ${priceOf("Pen")}`,
+    `Sold out: ${soldOutNames().join(", ")}`,
+  ].join(" | ");
+}
